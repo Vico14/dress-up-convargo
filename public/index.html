@@ -1,23 +1,68 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CSS/HTML Workshop with Convargo</title>
+    <meta charset="utf-8">
+    <title>Dressup Convargo</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta name='description' content='A boring new business company from the creators of Cards Against Humanity.'>
+    <meta property="og:title" content="Blackbox">
+    <meta property="og:site_name" content="Blackbox">
+    <meta property="og:url" content="http://www.blackbox.cool">
+    <meta property="og:description" content="A boring new business company from the creators of Cards Against Humanity.">
+    <meta property="og:image" content="http://www.blackbox.cool/img/facebook-blackbox.png">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
   </head>
+
   <body>
-    <div id="trucker">
-      <input class="name" type="text" placeholder="Trucker name"/>
-      <input class="price-by-km" type="number" placeholder="Price by km"/>
-      <input class="price-by-cubic" type="number" placeholder="Price by m3"/>
+    <!-- TITLE/ANIMATION -->
+    <header style='position: relative;' class='header'>
+
+      <div class='background' style='position: absolute; top: 0; bottom: 0; left: 0; right: 0;'></div>
+      <div class='logo'>
+        <h1 style='color : white; text-align:center;'>Convargo</h1>
+      </div>
+
+    </header>
+
+
+
+      <div class="intro">
+        <div class="container">
+          <h1>Get cost</h1>
+          <div id="trucker">
+            <input class="name" type="text" placeholder="Trucker name"/>
+            <input class="price-by-km" type="number" placeholder="Price by km"/>
+            <input class="price-by-cubic" type="number" placeholder="Price by m3"/>
+          </div>
+          <div id="shipper">
+            <input class="name" type="text" placeholder="Shipper name"/>
+            <input class="distance" type="number" placeholder="Distance in km"/>
+            <input class="volume" type="number" placeholder="Volume in m3"/>
+            <input class="option" type="checkbox" placeholder="Deductible option"/>
+          </div>
+          <button id="compute">Compute</button>
+          <div id="actors"></div>
+
+      </div>
+
     </div>
-    <div id="shipper">
-      <input class="name" type="text" placeholder="Shipper name"/>
-      <input class="distance" type="number" placeholder="Distance in km"/>
-      <input class="volume" type="number" placeholder="Volume in m3"/>
-      <input class="option" type="checkbox" placeholder="Deductible option"/>
-    </div>
-    <button id="compute">Compute</button>
-    <div id="actors"></div>
-    <script src="convargo.js"></script>
-    <script src="index.js"></script>
+    <script src="js/convargo.js"></script>
+    <script src="js/index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/logo.min.js"></script>
+    <script>
+      // Scroll to Fade header
+      $(window).scroll(function(){
+        $(".header").css("opacity", 1 - ($(window).scrollTop()-300) / 1000);
+      });
+      // Logo Animation JavaScript
+      window.onload = function() {
+        window.blackbox(document.getElementsByTagName('header')[0]);
+      };
+    </script>
+
   </body>
 </html>
